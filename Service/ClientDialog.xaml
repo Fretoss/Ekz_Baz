@@ -1,0 +1,40 @@
+﻿<Window x:Class="Service.ClientDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Service"
+        mc:Ignorable="d"
+        Title="Клиент" 
+        Height="250" 
+        Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Добавление/редактирование клиента" 
+                   FontSize="14" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <TextBlock Grid.Row="1" Text="ФИО:"/>
+        <TextBox Grid.Row="1" Height="30" Margin="0,5,0,10" 
+                 Text="{Binding FIO, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="2" Text="Телефон:"/>
+        <TextBox Grid.Row="2" Height="30" Margin="0,5,0,20" 
+                 Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BtnOK" Content="OK" Width="80" Height="30" Margin="5" 
+                    Click="BtnOK_Click"/>
+            <Button x:Name="BtnCancel" Content="Отмена" Width="80" Height="30" Margin="5" 
+                    Click="BtnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

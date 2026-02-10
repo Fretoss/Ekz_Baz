@@ -1,0 +1,78 @@
+﻿<Window x:Class="Service.CompleteOrderDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Service"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Завершение заказа" 
+        Height="550" 
+        Width="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" 
+                   Text="Завершение заказа" 
+                   FontSize="14" FontWeight="Bold" Margin="0,0,0,10"/>
+        
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" 
+                   Text="Описание проблемы:" 
+                   FontWeight="Bold" Margin="0,0,0,5"/>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" 
+                   x:Name="tbProblem" Margin="0,0,0,10"
+                   TextWrapping="Wrap" Height="50"/>
+        
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Дата завершения:" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <DatePicker Grid.Row="3" Grid.Column="1" x:Name="dpCompletionDate" 
+                    Height="30" Margin="0,0,0,5" SelectedDate="{x:Static System:DateTime.Today}"/>
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Услуга:" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <ComboBox Grid.Row="4" Grid.Column="1" x:Name="cbService" Height="30" Margin="0,0,0,5" 
+                  DisplayMemberPath="Наименование_услуги" SelectedValuePath="Код_услуги"
+                  SelectedValue="{Binding ServiceId}"/>
+        
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Запчасть:" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <ComboBox Grid.Row="5" Grid.Column="1" x:Name="cbPart" Height="30" Margin="0,0,0,5" 
+                  DisplayMemberPath="Наименование_запчасти" SelectedValuePath="Код_запчасти"
+                  SelectedValue="{Binding PartId}"/>
+        
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Количество запчастей:" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Height="30" Margin="0,0,0,5" 
+                 Text="{Binding PartQuantity, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Общая стоимость:" 
+                   VerticalAlignment="Center" Margin="0,0,10,5"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Height="30" Margin="0,0,0,20" 
+                 Text="{Binding TotalCost, UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <StackPanel Grid.Row="9" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BtnOK" Content="Завершить" Width="100" Height="30" Margin="5" 
+                    Click="BtnOK_Click"/>
+            <Button x:Name="BtnCancel" Content="Отмена" Width="80" Height="30" Margin="5" 
+                    Click="BtnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

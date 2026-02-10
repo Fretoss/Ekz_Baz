@@ -1,0 +1,50 @@
+<Window x:Class="Service.ScheduleDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Урок (расписание)" Height="360" Width="520" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Класс:" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cbClass" Grid.Row="0" Grid.Column="1" Height="26" Margin="0,2"
+                  DisplayMemberPath="Title" SelectedValuePath="Id"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="День недели (1..7):" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbDow" Grid.Row="1" Grid.Column="1" Height="26" Margin="0,2"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Номер урока (1..10):" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbNum" Grid.Row="2" Grid.Column="1" Height="26" Margin="0,2"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Предмет:" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cbSubject" Grid.Row="3" Grid.Column="1" Height="26" Margin="0,2"
+                  DisplayMemberPath="Title" SelectedValuePath="Id"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Учитель:" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cbTeacher" Grid.Row="4" Grid.Column="1" Height="26" Margin="0,2"
+                  DisplayMemberPath="Title" SelectedValuePath="Id"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Кабинет:" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbRoom" Grid.Row="5" Grid.Column="1" Height="26" Margin="0,2"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Время (например 08:30-09:15):" VerticalAlignment="Center"/>
+        <TextBox x:Name="tbTime" Grid.Row="6" Grid.Column="1" Height="26" Margin="0,2"/>
+
+        <StackPanel Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="OK" Width="90" Margin="6,0" Click="Ok_Click"/>
+            <Button Content="Отмена" Width="90" Margin="6,0" Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

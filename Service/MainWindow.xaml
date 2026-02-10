@@ -1,0 +1,143 @@
+<Window x:Class="Service.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Школа — информационная система"
+        Height="650" Width="980"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#2F5597" Padding="10">
+            <TextBlock Text="ИНФОРМАЦИОННАЯ СИСТЕМА «ШКОЛА»" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </Border>
+
+        <TabControl Grid.Row="1" Margin="8">
+
+            <!-- Ученики -->
+            <TabItem Header="👩‍🎓 Ученики">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4">
+                        <Button Content="➕ Добавить" Width="110" Margin="4" Click="AddStudent_Click"/>
+                        <Button Content="✏️ Изменить" Width="110" Margin="4" Click="EditStudent_Click"/>
+                        <Button Content="❌ Удалить" Width="110" Margin="4" Click="DeleteStudent_Click"/>
+                        <Button Content="🔄 Обновить" Width="110" Margin="4" Click="RefreshAll_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgStudents" Grid.Row="1" Margin="4" AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Учителя -->
+            <TabItem Header="👨‍🏫 Учителя">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4">
+                        <Button Content="➕ Добавить" Width="110" Margin="4" Click="AddTeacher_Click"/>
+                        <Button Content="✏️ Изменить" Width="110" Margin="4" Click="EditTeacher_Click"/>
+                        <Button Content="❌ Удалить" Width="110" Margin="4" Click="DeleteTeacher_Click"/>
+                        <Button Content="🔄 Обновить" Width="110" Margin="4" Click="RefreshAll_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgTeachers" Grid.Row="1" Margin="4" AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Классы -->
+            <TabItem Header="🏫 Классы">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4">
+                        <Button Content="➕ Добавить" Width="110" Margin="4" Click="AddClass_Click"/>
+                        <Button Content="✏️ Изменить" Width="110" Margin="4" Click="EditClass_Click"/>
+                        <Button Content="❌ Удалить" Width="110" Margin="4" Click="DeleteClass_Click"/>
+                        <Button Content="🔄 Обновить" Width="110" Margin="4" Click="RefreshAll_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgClasses" Grid.Row="1" Margin="4" AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Предметы -->
+            <TabItem Header="📚 Предметы">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4">
+                        <Button Content="➕ Добавить" Width="110" Margin="4" Click="AddSubject_Click"/>
+                        <Button Content="✏️ Изменить" Width="110" Margin="4" Click="EditSubject_Click"/>
+                        <Button Content="❌ Удалить" Width="110" Margin="4" Click="DeleteSubject_Click"/>
+                        <Button Content="🔄 Обновить" Width="110" Margin="4" Click="RefreshAll_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgSubjects" Grid.Row="1" Margin="4" AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Журнал оценок -->
+            <TabItem Header="📝 Журнал">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4">
+                        <Button Content="➕ Добавить" Width="110" Margin="4" Click="AddGrade_Click"/>
+                        <Button Content="✏️ Изменить" Width="110" Margin="4" Click="EditGrade_Click"/>
+                        <Button Content="❌ Удалить" Width="110" Margin="4" Click="DeleteGrade_Click"/>
+                        <Button Content="🔄 Обновить" Width="110" Margin="4" Click="RefreshAll_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgGrades" Grid.Row="1" Margin="4" AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Расписание -->
+            <TabItem Header="🗓️ Расписание">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4">
+                        <Button Content="➕ Добавить" Width="110" Margin="4" Click="AddSchedule_Click"/>
+                        <Button Content="✏️ Изменить" Width="110" Margin="4" Click="EditSchedule_Click"/>
+                        <Button Content="❌ Удалить" Width="110" Margin="4" Click="DeleteSchedule_Click"/>
+                        <Button Content="🔄 Обновить" Width="110" Margin="4" Click="RefreshAll_Click"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgSchedule" Grid.Row="1" Margin="4" AutoGenerateColumns="True" IsReadOnly="True" SelectionMode="Single"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock x:Name="tbStatus" Text="Готово"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

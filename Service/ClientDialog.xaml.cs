@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace Service
+{
+    /// <summary>
+    /// Логика взаимодействия для ClientDialog.xaml
+    /// </summary>
+    public partial class ClientDialog : Window
+    {
+        public string FIO { get; set; }
+        public string Phone { get; set; }
+
+        public ClientDialog()
+        {
+            InitializeComponent();
+            DataContext = this;
+        }
+
+        private void BtnOK_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(FIO))
+            {
+                MessageBox.Show("Введите ФИО клиента", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(Phone))
+            {
+                MessageBox.Show("Введите телефон клиента", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            DialogResult = true;
+            Close();
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+    }
+}

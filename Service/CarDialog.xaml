@@ -1,0 +1,67 @@
+﻿<Window x:Class="Service.CarDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Service"
+        mc:Ignorable="d"
+        Title="Автомобиль" 
+        Height="527" 
+        Width="500"
+        WindowStartupLocation="CenterOwner"
+        >
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Добавление/редактирование автомобиля" 
+                   FontSize="14" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <TextBlock Grid.Row="1" Text="Клиент:"/>
+        <ComboBox Grid.Row="1" x:Name="cbClient" Height="30" Margin="0,5,0,10" 
+                  DisplayMemberPath="ФИО" SelectedValuePath="Код_клиента"
+                  SelectedValue="{Binding ClientId}"/>
+
+        <TextBlock Grid.Row="2" Text="Государственный номер:"/>
+        <TextBox Grid.Row="2" Height="30" Margin="0,5,0,10" 
+                 Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="3" Text="Марка:"/>
+        <TextBox Grid.Row="3" Height="30" Margin="0,5,0,10" 
+                 Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="4" Text="Модель:"/>
+        <TextBox Grid.Row="4" Height="30" Margin="0,5,0,10" 
+                 Text="{Binding Model, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="5" Text="Год выпуска:"/>
+        <TextBox Grid.Row="5" Height="30" Margin="0,5,0,10" 
+                 Text="{Binding Year, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="6" Text="Пробег (км):"/>
+        <TextBox Grid.Row="6" Height="30" Margin="0,5,0,10" 
+                 Text="{Binding Mileage, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="7" Text="Цвет:"/>
+        <TextBox Grid.Row="7" Height="30" Margin="0,5,0,20" 
+                 Text="{Binding Color, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <StackPanel Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="BtnOK" Content="OK" Width="80" Height="30" Margin="5" 
+                    Click="BtnOK_Click"/>
+            <Button x:Name="BtnCancel" Content="Отмена" Width="80" Height="30" Margin="5" 
+                    Click="BtnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
